@@ -1,0 +1,13 @@
+body {
+    background-color: #b5fda7f6;
+    text-align: center;
+    margin: 10%;
+}
+
+.headerBody + .mainBody {
+    padding: 2%;
+}
+
+.mainButton {
+    box-shadow: rgba(93, 235, 112, 0.5);
+}
