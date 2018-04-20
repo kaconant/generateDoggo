@@ -4,10 +4,7 @@ body {
     margin: 10%;
 }
 
-.headerBody + .mainBody {
-    padding: 2%;
-}
-
 .mainButton {
+    margin: 5%;
     box-shadow: rgba(93, 235, 112, 0.5);
 }
