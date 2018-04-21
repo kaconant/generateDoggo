@@ -1,4 +1,20 @@
 $(function() {
+    
+    $.get("https://dog.ceo/api/breeds/list", function(response) {
+        response.message.forEach(function(currentBreed) {
+            $("select").append("<option val='" + currentBreed + "'>" + currentBreed + "</option>");
+            });
+        });
+
+    $("select").change(function() {
+        console.log(this);
+        var dogBreed = $(this).val();
+        var url = "https://dog.ceo/api/breed/" + dogBreed + "/image/random";
+        $.get(url, function(response) {
+            $("body").append("<img src='" + response.message + "'/>");
+        });
+    });
+    
     $(".mainButton").on("click", function() {
         $(this).html("Generating Doggo...");
         $.get("https://dog.ceo/api/breeds/image/random", function(data) {
