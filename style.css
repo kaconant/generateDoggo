@@ -4,6 +4,12 @@ body {
     margin: 10%;
 }
 
+.dogCard {
+    display: flex;
+    flex: wrap;
+    justify-content: space-around;
+}
+
 .mainButton {
     margin: 5%;
 }
