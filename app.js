@@ -1,32 +1,35 @@
 $(function() {
     
+    var renderDoggo = function(data) {
+        var finalHTML = "";
+        finalHTML += "<div class='card' style='min-width:200px; max-width:200px'>";
+        finalHTML += "<img class='card-img-top dogCard' src='" + data.message + "'</div>";
+        return finalHTML;
+    };
+    
     $.get("https://dog.ceo/api/breeds/list", function(response) {
         response.message.forEach(function(currentBreed) {
             $("select").append("<option val='" + currentBreed + "'>" + currentBreed + "</option>");
             });
         });
 
-    $("select").change(function() {
-        console.log(this);
+    /* var dogMessage = $("select").change(function() {
         var dogBreed = $(this).val();
-        var url = "https://dog.ceo/api/breed/" + dogBreed + "/image/random";
-        $.get(url, function(response) {
-            $("body").append("<img src='" + response.message + "'/>");
+        var url = "https://dog.ceo/api/breed/" + dogBreed + "/images/random";
+            $.get(url, function(data) {
+            var dogImage = renderDoggo(data);
+            $(".card-deck").append(dogImage);
         });
     });
+    */
     
     $(".mainButton").on("click", function() {
         $(this).html("Generating Doggo...");
-        $.get("https://dog.ceo/api/breeds/image/random", function(data) {
-            var renderDoggo = function() {
-                var finalHTML = "";
-                finalHTML += "<div class='card' style='width: 18rem;'>";
-                finalHTML += "<img class='card-img-top dogCard' src='" + data.message + "'</div>";
-                return finalHTML;
-            };
-            var dogImage = renderDoggo(data.message);
-            $(".card-deck").append(dogImage);
+        var dogBreed = $("select").val();
+        $.get("https://dog.ceo/api/breed/" + dogBreed + "/images/random", function(data) {
             $(".mainButton").html("Doggo Activate!");
+            var dogImage = renderDoggo(data);
+            $(".card-deck").append(dogImage);
         }); 
     });
 });
