@@ -2,8 +2,8 @@ $(function() {
     
     var renderDoggo = function(data) {
         var finalHTML = "";
-        finalHTML += "<div class='card' style='min-width:200px; max-width:200px'>";
-        finalHTML += "<img class='card-img-top dogCard' src='" + data.message + "'</div>";
+        finalHTML += "<div class='card dogCard' style='min-width:200px; max-width:200px'>";
+        finalHTML += "<img class='card-img-top dogCardImage' src='" + data.message + "'</div>";
         return finalHTML;
     };
     

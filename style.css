@@ -4,7 +4,7 @@ body {
     margin: 10%;
 }
 
-.cardDeck {
+.card-deck {
     display: flex;
     flex: wrap;
     justify-content: space-around;
@@ -12,4 +12,9 @@ body {
 
 .mainButton {
     margin: 5%;
+}
+
+.dogCard {
+    margin: 2%;
+    justify-content: center;
 }
